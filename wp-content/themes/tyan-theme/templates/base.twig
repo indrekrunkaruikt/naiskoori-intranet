@@ -9,7 +9,14 @@
 </head>
 <body>
     {% include "components/header-nav.twig" %}
-    <h1>{{ post.post_title }}</h1>
+    {% include "components/left-nav.twig" %}
+    <div class="container mx-3">
+        <div class="webpages">
+          {% block content %}
+              Empty!
+          {% endblock content %}
+        </div>
+      </div>
     {{ function('wp_footer') }}
 </body>
 </html>
