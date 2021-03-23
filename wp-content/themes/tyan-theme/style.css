@@ -141,4 +141,41 @@ body {
       margin-top: 3vh;
       margin-left: 0px; } }
 
+.users-table {
+  margin: auto;
+  border-radius: 5px; }
+  .users-table img {
+    border-radius: 100%;
+    height: 5vh; }
+  .users-table tr {
+    border-radius: 5px; }
+  .users-table th {
+    background-color: #171e3e;
+    color: white; }
+
+.modal-userinfo {
+  width: 60vw;
+  margin: auto; }
+  .modal-userinfo img {
+    float: left;
+    width: 20vw;
+    height: auto; }
+  .modal-userinfo table tr {
+    height: 5vh; }
+  .modal-userinfo table tr > td:first-child {
+    color: #757575; }
+  .modal-userinfo table input {
+    min-width: 100%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: 1 px solid #757575; }
+  .modal-userinfo .save-button {
+    margin: auto;
+    background-color: #171e3e;
+    color: white; }
+  @media (min-width: 768px) {
+    .modal-userinfo {
+      max-width: auto; } }
+
 /*# sourceMappingURL=style.css.map */

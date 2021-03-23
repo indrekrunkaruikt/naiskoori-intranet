@@ -62,6 +62,7 @@ function call_scripts(){
 	// all styles
 		wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/assets/fontawesome/css/all.css');
 		wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/assets/bootstrap5/css/bootstrap.min.css');
+		wp_enqueue_style( 'bootstrap-table-css', get_stylesheet_directory_uri() . '/assets/bootstrap5/css/bootstrap-table.min.css');
 		// Main Style file
 		wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/style.css');
 
@@ -69,6 +70,8 @@ function call_scripts(){
 		wp_enqueue_script( 'jquery', get_stylesheet_directory_uri() . '/assets/bootstrap5/js/jquery-3.6.0.min.js');
 		wp_enqueue_script( 'popper', get_stylesheet_directory_uri() . '/assets/bootstrap5/js/popper.min.js');
 		wp_enqueue_script( 'bootstrap-min-js', get_stylesheet_directory_uri() . '/assets/bootstrap5/js/bootstrap.min.js');
+		wp_enqueue_script( 'bootstrap-table', get_stylesheet_directory_uri() . '/assets/bootstrap5/js/bootstrap-table.min.js');
+
 		// Main javascript file
 		wp_enqueue_script( 'javascript', get_template_directory_uri() . '/assets/app.js');
 }
@@ -80,9 +83,38 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'create_roles' ) );
 		add_action( 'wp_enqueue_scripts', 'call_scripts' );
 		parent::__construct();
 	}
+
+
+	
+
+	function create_roles(){
+
+		// Create the roles when the theme is applied for the first time
+		add_role('singer', 'Laulja');
+		add_role('bookie', 'Raamatupidaja');
+		add_role('conductor', 'Koorivanem');
+		add_role('choirBoss', 'Koori juht');
+		add_role('secretary', 'Sekretär');
+		add_role('Note-handler', 'Noodihaldur');
+		$bookie  = get_role('bookie');
+		$singer = get_role('singer');
+		$conductor = get_role('conductor');
+		$choirBoss = get_role('choirBoss');
+		$secretary = get_role('secretary');
+		$noteHandler = get_role('Note-handler');
+		// Same capabilities as a subscriber
+		$bookie -> add_cap('read');
+		$singer -> add_cap('read');
+		$conductor -> add_cap('read'); 
+		$choirBoss -> add_cap('read'); 
+		$secretary -> add_cap('read');
+		$noteHandler -> add_cap('read');
+	}
+
 	/** This is where you can register custom post types. */
 	public function register_post_types() {
 
@@ -183,6 +215,7 @@ class StarterSite extends Timber\Site {
 	 *
 	 * @param string $twig get extension.
 	 */
+
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
 		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );

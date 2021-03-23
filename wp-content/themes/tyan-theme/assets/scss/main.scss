@@ -183,3 +183,52 @@ body {
     margin-left: 0px;
   }
 }
+.users-table {
+  margin: auto;
+  border-radius: 5px;
+  img{
+    border-radius: 100%;
+    height: 5vh;
+  }
+  tr{
+    border-radius: 5px;
+  }
+  th{
+    background-color: $primaryColor;
+    color: white;
+  }
+}
+
+.modal-userinfo{
+  width: 60vw;
+  margin: auto;
+  img{
+    float: left;
+    width: 20vw;
+    height: auto;
+  }
+  table{
+    // float: right;
+    tr{
+      height: 5vh;
+    }
+    tr > td:first-child{
+      color: $primaryColor-300;
+    }
+    input {
+      min-width: 100%;
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: 1 px solid $primaryColor-300;
+    }
+  }
+  .save-button{
+    margin: auto;
+    background-color: $primaryColor;
+    color: white;
+  }
+  @media (min-width: $tablet){
+    max-width: auto;
+  }
+}
