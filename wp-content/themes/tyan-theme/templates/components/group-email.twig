@@ -1,0 +1,58 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openEmailForm()">
+    Saada E-mail
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Saada E-mail</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container form-top">
+                <div class="row">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <form id="reused_form">
+                                    <div class="form-group">
+                                        <label >Kellelt</label>
+                                        <input type="email" name="email" required  class="form-control" placeholder="Enter Email" value="{{ current_user.email }}">
+                                    </div>
+                                     <div class="form-group">
+                                         <label >Kirja pealkrii</label>
+                                         <input type="text" name="name" required class="form-control" placeholder="Enter Name">
+                                     </div>
+                                     <div class="form-group">
+                                         <label >Siht</label>
+                                         <input type="email" name="email" required  class="form-control" placeholder="Enter Email" id="sendGroupEmail">
+                                     </div>
+                                     <div class="form-group">
+                                         <label >Message</label>
+                                         <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                     </div>
+                                </form>
+        
+                                <div id="error_message" style="width:100%; height:100%; display:none; ">
+                                <h4>Error</h4>
+                                Sorry there was an error sending your form.
+                                </div>
+                                <div id="success_message" style="width:100%; height:100%; display:none; ">
+                                <h2>Success! Your Message was Sent Successfully.</h2>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-raised btn-lg btn-warning"
+            type="submit">Send</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

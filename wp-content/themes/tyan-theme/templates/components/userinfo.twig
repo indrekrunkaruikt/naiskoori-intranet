@@ -1,89 +1,96 @@
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#userModal{{user.ID}}">
-                      <i class="far fa-address-card"></i>
-                      </button>
-                      
-                      <!-- Modal -->
-                      <div class="modal fade" id="userModal{{user.ID}}" tabindex="-1" aria-labelledby="userinfoLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content modal-userinfo">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="userinfoLabel">Liikme {{ user.display_name }} andmed</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="{{ function('get_avatar_url', user.ID) }}">
-                                <div class="md-form  input-with-post-icon">
-                                  <table>
-                                    <tr>
-                                        <td>Liikme nimi</td>
-                                        <td><input type="text" value="{{ user.display_name }}"></td>
-                                        <td><i class="fas fa-pencil-alt"></i></td>
-                                    </tr>
-                                    {% if (isABookie or choirBoss) %}
-                                      <tr>
-                                        <td>Isikukood</td>
-                                        <td><input type="text" value="{{ user.Personal_ID}}"></td>
-                                        <td><i class="fas fa-pencil-alt"></i></td>
-                                      </tr>
-                                    {% endif %}
-                                      
-                                    <tr>
-                                      <td>Liikme e-mail</td>
-                                      <td><input type="text" value="{{ user.user_email}}"></td>
-                                      <td><i class="fas fa-pencil-alt"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td>Sünnipäev</td>
-                                      <td>
-                                        <input type="text" value="{{ function('calculateBirthday', user.Personal_ID )}}"></td>
-                                        <td><i class="fas fa-pencil-alt"></i></td>
-                                    </tr>
-                                    <tr>
-                                      <td>Telefon</td>
-                                      <td>
-                                        <input type="number" value="{{ user.phone_number }}">
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Tudeng</td>
-                                      <td>
-                                        <select class="custom-select" id="inputGroupSelect02">
-                                          <option value="jah">Jah</option>
-                                          <option value="ei">Ei</option>
-                                        </select>
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Noorlaulja</td>
-                                      <td>Ei
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Amet</td>
-                                      <td>
-                                        {% for role in user.roles %}
-                                          {{ role }}
-                                        {% endfor %}
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Sisseastumise aeg</td>
-                                      <td>{{ user.user_registered }}
-                                        <i class="fas fa-pencil-alt"></i>
-                                      </td>
-                                    </tr>
-                                </table>
-                                </div>
-            
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn save-button">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#userModal{{user.ID}}">
+  <i class="far fa-address-card"></i>
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="userModal{{user.ID}}" tabindex="-1" aria-labelledby="userinfoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-userinfo">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userinfoLabel">Liikme {{ user.display_name }} andmed</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <img src="{{ function('get_avatar_url', user.ID) }}">
+            </div>
+            <div class="col">
+              <div class="md-form  input-with-post-icon">
+                <table>
+                  <tr>
+                      <td>Liikme nimi</td>
+                      <td><input type="text" value="{{ user.display_name }}"></td>
+                      <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  {% if (isABookie or choirBoss) %}
+                    <tr>
+                      <td>Isikukood</td>
+                      <td><input type="text" value="{{ user.Personal_ID}}"></td>
+                      <td><i class="fas fa-pencil-alt"></i></td>
+                    </tr>
+                  {% endif %}
+                    
+                  <tr>
+                    <td>Liikme e-mail</td>
+                    <td><input type="text" value="{{ user.user_email}}"></td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Sünnipäev</td>
+                    <td>
+                      <input type="text" value="{{ function('calculateBirthday', user.Personal_ID )}}"></td>
+                      <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Telefon</td>
+                    <td>
+                      <input type="number" value="{{ user.phone_number }}">
+                    </td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Tudeng</td>
+                    <td>
+                      <select class="custom-select" id="inputGroupSelect02">
+                        <option value="jah">Jah</option>
+                        <option value="ei">Ei</option>
+                      </select>
+                    </td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Noorlaulja</td>
+                    <td>Ei</td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Amet</td>
+                    <td>
+                      {% for role in user.roles %}
+                        {{ role }}
+                      {% endfor %}
+                    </td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+                  <tr>
+                    <td>Sisseastumise aeg</td>
+                    <td>{{ user.user_registered }}</td>
+                    <td><i class="fas fa-pencil-alt"></i></td>
+                  </tr>
+              </table>
+              </div>
+  
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn save-button">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

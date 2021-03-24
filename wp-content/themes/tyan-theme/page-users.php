@@ -37,6 +37,7 @@ $users = get_users( [ 'role__in' => [
 $bookie = current_user_can( 'bookie' );
 $choirBoss = current_user_can( 'choirBoss' );
 $conductor = current_user_can('conductor');
+$canSendGroupEmails = $bookie || $choirBoss || $conductor;
 
 // Calculate birthday
 function calculateBirthday($Personal_ID){
@@ -67,6 +68,7 @@ $context['users'] = $users;
 $context['isABookie'] = $bookie;
 $context['choirBoss'] = $choirBoss;
 $context['conductor'] = $conductor;
+$context['canSendGroupEmails'] = $canSendGroupEmails;
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;

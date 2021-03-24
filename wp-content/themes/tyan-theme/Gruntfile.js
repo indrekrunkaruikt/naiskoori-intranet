@@ -31,9 +31,7 @@ module.exports = function(grunt){
         },
         concat: { 
             js:{
-                options: {
-                    separator: ';',
-                  },
+
                     src: ['assets/js/*.js', 'assets/js/**/*.js'],
                     dest: 'assets/app.js',
             }

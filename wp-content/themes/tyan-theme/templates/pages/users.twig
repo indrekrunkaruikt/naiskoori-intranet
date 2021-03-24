@@ -9,12 +9,12 @@
     class="users-table">
       <thead>
         <tr> 
-          {% if isABookie %}
+          {% if canSendGroupEmails %}
               <th>E-mail</th>
           {% endif %}
           <th>Pilt</th>
           <th>Liikme nimi</th>
-          {% if isABookie %}
+          {% if isABookie or  choirBoss %}
               <th>Isikukood</th>
           {% endif %}
           <th  data-sortable="true">Häälerühm</th>
@@ -29,16 +29,16 @@
       <tbody>
         {% for user in users %}
         <tr>
-          {% if isABookie %}
+          {% if canSendGroupEmails %}
               <th>
-                <input type="checkbox">
+                <input type="checkbox" value="{{ user.user_email }}" class="sendEmailsTo">
               </th>
           {% endif %}
           <td>
             <img src="{{ function('get_avatar_url', user.ID) }}">
           </td>
           <td>{{user.display_name}}</td>
-          {% if isABookie %}
+          {% if isABookie or  choirBoss %}
           <td>{{ user.Personal_ID }}</td>
           {% endif %}
           <td>{{ user.vocal-range }}</td>
@@ -62,8 +62,8 @@
         {% endfor %}
       </tbody>
     </table>
-    {% if isABookie %}
-      
+    {% if canSendGroupEmails %}
+      {% include "components/group-email.twig" %}
     {% endif %}
   
  {% endblock %}
