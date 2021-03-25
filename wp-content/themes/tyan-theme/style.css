@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
-body {
-  font-size: 16px;
-  height: 8000px;
-  width: 100%; }
-
 .upperNav {
   top: 0;
   left: 0;
@@ -133,15 +128,6 @@ body {
       .sideNav ul {
         margin-top: 4vh; } }
 
-.webpages {
-  margin-left: 200px;
-  margin-right: 1vw;
-  margin-top: 10vh; }
-  @media (max-width: 768px) {
-    .webpages {
-      margin-top: 3vh;
-      margin-left: 0px; } }
-
 .users-table {
   margin: auto;
   border-radius: 5px; }
@@ -155,13 +141,16 @@ body {
     color: white; }
 
 .modal-userinfo {
-  width: 50vw; }
+  width: fit-content; }
   .modal-userinfo img {
     float: left;
     width: 20vw;
     height: auto;
     margin-top: 8vh;
     margin-right: 2vw; }
+  .modal-userinfo .userinfo-container {
+    display: flex;
+    align-items: center; }
   .modal-userinfo table tr {
     height: 5vh; }
   .modal-userinfo table tr > td:first-child {
@@ -179,5 +168,19 @@ body {
   @media (min-width: 768px) {
     .modal-userinfo {
       max-width: auto; } }
+
+body {
+  font-size: 16px;
+  height: 8000px;
+  width: 100%; }
+
+.webpages {
+  margin-left: 200px;
+  margin-right: 1vw;
+  margin-top: 10vh; }
+  @media (max-width: 768px) {
+    .webpages {
+      margin-top: 3vh;
+      margin-left: 0px; } }
 
 /*# sourceMappingURL=style.css.map */

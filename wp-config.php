@@ -55,6 +55,16 @@ define( 'SECURE_AUTH_SALT', '#XY2K^;I-z-)-454by7@i$;X>=ign/x&G,3K^VKa{qKZ_M?H-EM
 define( 'LOGGED_IN_SALT',   'ZD+TNk)}Tim%Wjzjenu cxNqkJwKi%_OpdNFJyqk(b)@u]9v0eYJ7TPK^G65hLe[' );
 define( 'NONCE_SALT',       'pAr<sI6??nJ6Cr NhkEmygbp<.xDndtk2W^%VsO<ZY3G~VV}.+zphJgw]b3n{HpN' );
 
+// Configure to fit the function wp_mail();
+define( 'SMTP_USER',   'naiskoorintra@gmail.com');    // Username to use for SMTP authentication
+define( 'SMTP_PASS',   'typcvrnawwujiecs' );       // Password to use for SMTP authentication
+define( 'SMTP_HOST',   'smtp.gmail.com' );    // The hostname of the mail server
+define( 'SMTP_FROM',   'naiskoorintra@gmail.com' ); // SMTP From email address
+define( 'SMTP_NAME',   'TÜAN intranet' );    // SMTP From name
+define( 'SMTP_PORT',   '587' );                  // SMTP port number - likely to be 25, 465 or 587
+define( 'SMTP_SECURE', 'tls' );                 // Encryption system to use - ssl or tls
+define( 'SMTP_AUTH',    true );                 // Use SMTP authentication (true|false)
+define( 'SMTP_DEBUG',   1 );                    // for debugging purposes only set to 1 or
 /**#@-*/
 
 /**
@@ -77,12 +87,8 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
-@ini_set( 'upload_max_filesize' , '128M' );
-@ini_set( 'post_max_size', '128M');
-@ini_set( 'memory_limit', '256M' );
-@ini_set( 'max_execution_time', '300' );
-@ini_set( 'max_input_time', '300' );
+
+define( 'WP_DEBUG', true );
 
 /* That's all, stop editing! Happy publishing. */
 

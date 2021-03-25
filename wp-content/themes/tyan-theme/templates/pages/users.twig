@@ -3,6 +3,7 @@
 {% block content %}
   <h1>Liikmed</h1>
     {# Edited using this: https://bootstrap-table.com/docs/getting-started/usage/ #}
+    {% include "components/feedback-email.twig" %}
     <table 
     data-toggle="table" 
     data-search="true"
@@ -49,9 +50,7 @@
            {{ function('calculateBirthday', user.Personal_ID )}}
           </td>
           <td>
-            {% for role in user.roles %}
-              {{ role }}
-            {% endfor %}
+            {{ function('returnUserRoles', user.roles)}}
           </td>
           <td>
             

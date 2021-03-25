@@ -39,6 +39,16 @@ $choirBoss = current_user_can( 'choirBoss' );
 $conductor = current_user_can('conductor');
 $canSendGroupEmails = $bookie || $choirBoss || $conductor;
 
+
+function returnUserRoles($userRoles){
+    $currentUserRoles= array();
+    foreach ($userRoles as $role) {
+        $currentUserRoles = $role;
+    }
+    return $currentUserRoles;
+}
+
+
 // Calculate birthday
 function calculateBirthday($Personal_ID){
     $century = 0;
@@ -61,6 +71,21 @@ function calculateBirthday($Personal_ID){
     return $birthDate;
 }
 
+if(isset($_POST['submit'])){
+
+    // First send a control, e-mail to your own account;
+    $websiteEmail = 'naiskoorintra@gmail.com'; // this is your website Email address
+    $subject = $_POST['subject'];
+    $senderName = $_POST['sender-name'];
+    $senderRoles = $_POST['sender-roles'];
+    $recievers = $_POST['recievers'];
+    $message = $_POST['message'];
+    $messageToUs = $senderName . "with a ." . $senderRoles. ". e-mailed the following:" . "\n\n" . $message . "\n\n" . "to the following recievers" . $recievers;
+    $messageToFrontend = $senderName . " with the role of " . $senderRoles[0] ." successfully sent e-mails";
+
+    mail($websiteEmail,$subject,$messageToUs);
+    mail($recievers,$subject,$message);
+    }
 
 $context = Timber::context();
 

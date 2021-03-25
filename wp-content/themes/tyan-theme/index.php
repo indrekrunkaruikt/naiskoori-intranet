@@ -16,6 +16,7 @@
 $context          = Timber::context();
 $context['posts'] = new Timber\PostQuery();
 $context['foo']   = 'bar';
+$context['officialEmailOfThisWebsite'] = 'naiskoorintra@gmail.com';
 
 $templates        = array( 'index.twig' );
 if ( is_home() ) {

@@ -1,0 +1,88 @@
+.upperNav {
+    top: 0;
+    left: 0;
+    background-color: $secondary-100;
+    color: white;
+    position: fixed;
+    height: fit-content;
+    width: 100vw;
+    padding: 2vh;
+    z-index: 15;
+    justify-content: center;
+    .logo-holder {
+      width: 200px;
+      margin-left: 1vw;
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+    .burger-button {
+      display: none;
+      @media (max-width: $tablet) {
+        display: block;
+        margin: auto;
+        float: center;
+        border: none;
+        color: transparent;
+        background-color: transparent;
+        i {
+          color: white;
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+    .mobile-logo-holder {
+      display: none;
+      @media (max-width: $tablet) {
+        display: block;
+      }
+    }
+    .search-input-holder {
+      color: $primaryColor-300;
+      border-radius: 3px;
+      background-color: white;
+      padding: 1vh;
+      align-items: center;
+      input {
+        min-width: 100%;
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+      }
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+    .search-button-holder {
+      display: flex;
+      justify-content: flex-end;
+      border: none;
+      i {
+        margin-right: 1vw;
+      }
+    }
+    .mobile-logo {
+      display: none;
+      @media (max-width: $tablet) {
+        display: block;
+      }
+    }
+    .user-info {
+      display: flex;
+      justify-content: flex-end;
+      .avatar {
+        margin-right: 1vw;
+      }
+      .name-job {
+        @media (max-width: $tablet) {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: $tablet) {
+      height: fit-content;
+      position: relative;
+    }
+  }
